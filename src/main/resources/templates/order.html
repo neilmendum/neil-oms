@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Neil OMS</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+    <form action="#" th:action="@{/placeOrder}" th:object="${orderFormDto}" method="post">
+        <p>Amount: <input type="text" th:field="*{amount}" /></p>
+
+        <input type="hidden" th:value="${orderFormDto.side}" name="side" />
+        <input type="hidden" th:value="${orderFormDto.isin}" name="isin" />
+        <input type="hidden" th:value="${orderFormDto.portfolioId}" name="portfolioId" />
+
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+
+</body>
+</html>

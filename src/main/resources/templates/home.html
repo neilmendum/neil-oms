@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Neil OMS</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+
+<a th:href="@{/portfolio}">View your portfolio</a>
+<a th:href="@{/home}">Home</a>
+<br/>
+
+    <table id="stocks">
+        <thead>
+            <tr>
+                <th>ISIN</th>
+                <th>Buy Price</th>
+                <th>Sell price</th>
+                <th>Buy</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr th:each="stock : ${stocks}">
+                <td th:text="${stock.isin.code}"></td>
+                <td th:text="${stock.buyPrice}"></td>
+                <td th:text="${stock.sellPrice}"></td>
+                <td>
+                    <a th:href="@{|/order/BUY/${stock.isin.code}}">Buy</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

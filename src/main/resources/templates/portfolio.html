@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Neil OMS</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<a th:href="@{/portfolio}">View your portfolio</a>
+<a th:href="@{/home}">Home</a>
+
+<br/>
+
+    Portfolio id : <p th:text="${portfolio.id}"></p>
+    Portfolio balance : <p th:text="${portfolio.balance}"></p>
+
+    Stocks :
+    <table id="stocks">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Sell</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="entry : ${portfolio.inventory}">
+            <td th:text="${entry.key.code}"></td>
+            <td th:text="${entry.value}"></td>
+            <td>
+                <a th:href="@{|/order/SELL/${entry.key.code}}">Sell</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Neil OMS</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+    Order id: <p th:text="${orderStatus.id}"></p>
+    Is order valid: <p th:text="${orderStatus.orderStatusMessage.valid}"></p>
+    Order Status Message: <p th:text="${orderStatus.orderStatusMessage.message}"></p>
+
+    <br/>
+    <a th:href="@{/portfolio}">View your portfolio</a>
+    <a th:href="@{/home}">Home</a>
+
+</body>
+</html>
